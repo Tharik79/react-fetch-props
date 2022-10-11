@@ -4,7 +4,7 @@ import './App.css';
 import { React, useState, useEffect } from 'react';
 
 function App() {
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -18,7 +18,7 @@ function App() {
       <div className="container">
         {posts.map((post) => {
           return (
-            <div class="card">
+            <div className="card mt-3" key={post.id}>
               <div className="card-body">
                 <h5 className="card-title">{post.title}</h5>
 
@@ -26,7 +26,7 @@ function App() {
               </div>
             </div>
           );
-        })}
+          })}
       </div>
     </div>
   );
